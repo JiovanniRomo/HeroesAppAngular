@@ -1,4 +1,3 @@
-
 export interface Heroe {
     id?:               string;
     superhero:        string;
