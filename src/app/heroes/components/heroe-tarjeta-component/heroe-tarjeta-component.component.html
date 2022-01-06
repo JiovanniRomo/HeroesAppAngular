@@ -12,7 +12,6 @@
     <!-- <img mat-card-image src="assets/heroes/{{ heroe.id }}.jpg" [alt]="heroe.alter_ego"> -->
     <img mat-card-image [src]="heroe | imagen" [alt]="heroe.alter_ego">
 
-
     <mat-card-content>
         <h3>
             <strong>Propietario: </strong> {{heroe.publisher}}
@@ -26,11 +25,11 @@
 
     <mat-card-actions>
         <!-- Espacio para colocar botones -->
-        <button mat-button color="warn">
+        <button mat-button color="warn" [routerLink]="['/heroes', heroe.id]">
             Leer mas
         </button>
 
-        <button mat-button color="warn">
+        <button mat-button [routerLink]="['/heroes/editar', heroe.id]">
             Editar
         </button>
     </mat-card-actions>

@@ -11,8 +11,8 @@ import { HeroesRoutingModule } from './heroes-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { HeroeTarjetaComponentComponent } from './components/heroe-tarjeta-component/heroe-tarjeta-component.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
-
-
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +22,15 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     HomeComponent,
     ListadoComponent,
     HeroeTarjetaComponentComponent,
-    ImagenPipe
+    ImagenPipe,
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
+    FormsModule,
     HeroesRoutingModule,
-    MaterialModule
-  ]
+    MaterialModule,
+    RouterModule,
+  ],
 })
-export class HeroesModule { }
+export class HeroesModule {}
