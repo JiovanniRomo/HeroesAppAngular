@@ -1,7 +1,7 @@
 export interface Heroe {
-    id?:               string;
+    _id?:               string;
     superhero:        string;
-    publisher:        Publisher;
+    publisher:        string;
     alter_ego:        string;
     first_appearance: string;
     characters:       string;
@@ -11,4 +11,8 @@ export interface Heroe {
 export enum Publisher {
     DCComics = "DC Comics",
     MarvelComics = "Marvel Comics",
+}
+
+export interface HeroesCoincidencias {
+    coincidencias: Heroe[];
 }

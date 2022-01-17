@@ -25,11 +25,11 @@
 
     <mat-card-actions>
         <!-- Espacio para colocar botones -->
-        <button mat-button color="warn" [routerLink]="['/heroes', heroe.id]">
+        <button mat-button color="warn" [routerLink]="['/heroes', heroe._id]">
             Leer mas
         </button>
 
-        <button mat-button [routerLink]="['/heroes/editar', heroe.id]">
+        <button mat-button [routerLink]="['/heroes/editar', heroe._id]">
             Editar
         </button>
     </mat-card-actions>

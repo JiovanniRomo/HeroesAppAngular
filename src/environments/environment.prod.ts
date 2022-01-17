@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://algunHosting/api'
+  baseUrl: 'https://heroes-api-angular.herokuapp.com'
 };

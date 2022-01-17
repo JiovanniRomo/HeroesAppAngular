@@ -6,6 +6,24 @@ import { Heroe } from '../interfaces/heroes.interface';
 })
 export class ImagenPipe implements PipeTransform {
   transform(heroe: Heroe): string {
-    return (heroe.id) ? `assets/heroes/${heroe.id}.jpg` : 'assets/no-image.png';
+
+    let urlImagen: string = '';
+    let publisherCorto: string[] | string = heroe.publisher.split(' ');
+    publisherCorto = publisherCorto[0].toLowerCase();
+    
+    let nombreCorto: string[] | string = heroe.superhero.split(' ');
+    nombreCorto = nombreCorto[0].toLowerCase();
+
+    urlImagen = `assets/heroes/${publisherCorto}-${nombreCorto}.jpg`;
+
+    if(heroe.superhero === 'ROBIN/NIGHTWING'){
+      urlImagen = `assets/heroes/dc-robin.jpg`;
+    } 
+
+    if(heroe.superhero ==='GREEN ARROW') {
+      urlImagen = `assets/heroes/dc-arrow.jpg`;
+    }
+  
+    return (heroe.superhero) ? urlImagen : 'assets/no-image.png';
   }
 }

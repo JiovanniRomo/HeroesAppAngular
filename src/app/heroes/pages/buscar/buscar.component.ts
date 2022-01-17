@@ -11,7 +11,7 @@ import { HeroesService } from '../../services/heroes.service';
 export class BuscarComponent implements OnInit {
   termino: string = '';
   heroes: Heroe[] = [];
-  heroeSeleccionado!: Heroe;
+  heroeSeleccionado: Heroe | undefined;
 
   constructor(private heroesService: HeroesService) {}
 
@@ -20,15 +20,20 @@ export class BuscarComponent implements OnInit {
   buscando() {
     // this.heroesService.getHeroes().subscribe( heroes => this.heroes = heroes);
     this.heroesService
-      .getSugerencias(this.termino)
-      .subscribe((heroes) => (this.heroes = heroes));
+      .getSugerencias(this.termino.trim())
+      .subscribe(({coincidencias}) => (this.heroes = coincidencias)); 
   }
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent) {
+    //Validar si es un string vacio
+    if(!event.option.value){
+      this.heroeSeleccionado = undefined;
+      return;
+    }
+
     const heroe: Heroe = event.option.value;
     this.termino = heroe.superhero;
     this.heroeSeleccionado = heroe;
-
     //Normalmente en este punto haces una nueva peticion HTTP para traer TODA la info
   }
 }
