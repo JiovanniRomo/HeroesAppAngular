@@ -23,6 +23,12 @@ export class ImagenPipe implements PipeTransform {
     if(heroe.superhero ==='GREEN ARROW') {
       urlImagen = `assets/heroes/dc-arrow.jpg`;
     }
+
+    if(!heroe._id && !heroe.alt_image) {
+      return `assets/no-image.png`;
+    } else if(heroe.alt_image) {
+      return heroe.alt_image;
+    }
   
     return (heroe.superhero) ? urlImagen : 'assets/no-image.png';
   }

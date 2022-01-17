@@ -9,12 +9,16 @@
     fxLayoutGap="20px"
 >
     <div 
-        fxFlex="20" 
-        *ngFor="let heroe of heroes"
-        fxFlex.lg="15"
-        fxFlex.sm="30"
+    fxFlex="20" 
+    *ngFor="let heroe of heroes"
+    fxFlex.lg="15"
+    fxFlex.sm="30"
     >
-        <app-heroe-tarjeta-component [heroe]="heroe">
-        </app-heroe-tarjeta-component>
+        <mat-spinner *ngIf="!heroes; else divHeroe"></mat-spinner>
+        
+        <ng-template #divHeroe>
+            <app-heroe-tarjeta-component [heroe]="heroe">
+            </app-heroe-tarjeta-component>
+        </ng-template>
     </div>
 </section>
